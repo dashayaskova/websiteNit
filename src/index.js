@@ -6,8 +6,7 @@ import './min_pls.js';
 import './cart.js';
 import './post.js';
 
-console.log('Hello!');
-console.log(`The time is ${new Date()}`);
+
 jQuery.ajax({
     url: 'https://nit.tron.net.ua/api/category/list',
     method: 'get',

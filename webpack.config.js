@@ -1,11 +1,13 @@
 const path = require('path');
+// ... contents of webpack.config.js
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 
 module.exports = {
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'docs'),
-        filename: 'js/main.js',
+        filename: 'js/main.js'
     },
     module: {
         rules: [
@@ -38,6 +40,6 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: "css/[name].css",
         }),
-    ],
-
+    ]
 };
+
