@@ -54,7 +54,31 @@ $(document).ready(function () {
 
 
     });
+
+
+    $(document).on('click', '.but-buy', function () {
+        var id = $(this).closest('.col').data('product-id');
+
+        if (!window.localStorage.cart) {
+            window.localStorage.cart = '';
+        }
+        var _cart = window.localStorage.cart.split('|');
+
+        if (_cart.includes(id.toString())) {
+
+            var counter = parseInt(window.localStorage.getItem('cart-' + id)) + 1;
+            window.localStorage.setItem('cart-' + id, counter.toString());
+
+
+        } else {
+            window.localStorage.setItem('cart-' + id, 1);
+            _cart.push(id.toString());
+            window.localStorage.setItem('cart', _cart.join('|'));
+        }
+
+    });
 });
+
 
 
 
