@@ -1,0 +1,102 @@
+<html>
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+
+<header class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">WebSiteName</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li class="all"><a href="#">All</a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+
+                </ul>
+            </li>
+
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" class="bask"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
+
+        </ul>
+    </div>
+</header>
+
+<!--код меню с W3School
+https://www.w3schools.com/bootstrap/bootstrap_navbar.asp!-->
+
+<div id="main_pic">
+    <img style="width: 100%; object-fit: contain;" class="img-fluid" alt="Responsive image" src="./pics/main_pic2.jpg">
+</div>
+
+<div class="container-fluid">
+    <div class="container">
+    </div>
+
+    <div class="form">
+        <form>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name..">
+
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="Your email..">
+
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="Your phone..">
+
+            <input type="button" class="but-sub" value="Submit">
+        </form>
+    </div>
+
+</div>
+
+
+<hr>
+<footer>
+    <p>Created by Dasha Yaskova</p>
+</footer>
+
+<script src="./js/main.js"></script>
+
+<script>
+    $(document).on('click', '.but-buy', function () {
+        var id = $(this).closest('.col').data('product-id');
+
+        if (!window.localStorage.cart) {
+            window.localStorage.cart = '';
+        }
+        var _cart = window.localStorage.cart.split('|');
+
+        if (_cart.includes(id.toString())) {
+
+            var counter = parseInt(window.localStorage.getItem('cart-' + id)) + 1;
+            window.localStorage.setItem('cart-' + id, counter.toString());
+
+
+        } else {
+            window.localStorage.setItem('cart-' + id, 1);
+            _cart.push(id.toString());
+            window.localStorage.setItem('cart', _cart.join('|'));
+        }
+
+    });
+</script>
+
+
+</body>
+
+</html>
