@@ -4,7 +4,6 @@ $(document).ready(function () {
         document.getElementById('main_pic').style.display = 'none';
         document.getElementsByClassName('form')[0].style.display = 'none';
         $("div.container").empty();
-        $("footer").empty();
         document.getElementsByClassName('container')[0].style.backgroundColor = '';
         var numOfCat;
         var url;
@@ -57,7 +56,7 @@ $(document).ready(function () {
             }
         });
 
-        $('<p>').text("Created by Dasha Yaskova").appendTo('footer');
+
 
     });
 
